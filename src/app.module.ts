@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { UserModule } from './server/user/user.module'
+import { UserModule } from './user/user.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { AuthModule } from './auth/auth.module'
+import { ConfigModules } from './config/config.module'
+import { RedisCacheModule } from './db/redis-cache/redis-cache.module'
 
 @Module({
   imports: [
+    UserModule,
     TypeOrmModule.forRoot({
       // 配置写在这里
       type: 'mysql',
@@ -18,7 +22,9 @@ import { TypeOrmModule } from '@nestjs/typeorm'
       autoLoadEntities: true,
       synchronize: false,
     }),
-    UserModule,
+    AuthModule,
+    ConfigModules,
+    RedisCacheModule,
   ],
   controllers: [AppController],
   providers: [AppService],
