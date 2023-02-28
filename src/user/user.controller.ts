@@ -9,13 +9,14 @@ import {
 } from '@nestjs/common'
 import { UserService } from './user.service'
 import { CreateUserDto, DelUserDto } from './dto/create-user.dto'
-import { ApiOperation, ApiResponse } from '@nestjs/swagger'
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { User } from './entities/user.entity'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { Roles } from 'src/auth/roles.decorator'
 import { RolesGuard } from 'src/auth/role.guard'
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
 
+@ApiTags('用户')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}

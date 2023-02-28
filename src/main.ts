@@ -16,8 +16,8 @@ async function bootstrap() {
   app.use(logger)
   // 设置swagger文档
   const config = new DocumentBuilder()
-    .setTitle('管理后台')
-    .setDescription('管理后台接口文档')
+    .setTitle('nestJS测试')
+    .setDescription('接口文档')
     .setVersion('1.0')
     .addBearerAuth()
     .build()
