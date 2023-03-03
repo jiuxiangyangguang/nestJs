@@ -10,6 +10,7 @@ import { AllExceptionsFilter } from './core/filter/any-exception.filter'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  // app.setGlobalPrefix('api') // 全局路由前缀
   app.use(express.json()) // For parsing application/json
   app.use(express.urlencoded({ extended: true })) // For parsing application/x-www-form-urlencoded
   // 监听所有的请求路由，并打印日志
